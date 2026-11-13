@@ -1,0 +1,18 @@
+{
+  "session_id": "regression_amid_noise",
+  "recorded_failure": {
+    "type": "AssertionError",
+    "message_contains": "config.json"
+  },
+  "turns": [
+    {"id": 0, "tool": "write_file", "args": {"path": "readme.md", "content": "project readme v1"}},
+    {"id": 1, "tool": "write_file", "args": {"path": "config.json", "content": "{\"mode\": \"prod\"}"}},
+    {"id": 2, "tool": "write_file", "args": {"path": "notes.txt", "content": "todo: cleanup"}},
+    {"id": 3, "tool": "write_file", "args": {"path": "build.log", "content": "build ok"}},
+    {"id": 4, "tool": "write_file", "args": {"path": "config.json", "content": "{\"mode\": \"debug\"}"}},
+    {"id": 5, "tool": "write_file", "args": {"path": "notes.txt", "content": "todo: cleanup more"}},
+    {"id": 6, "tool": "write_file", "args": {"path": "build.log", "content": "build ok, round two"}},
+    {"id": 7, "tool": "write_file", "args": {"path": "scratch.tmp", "content": "noise"}},
+    {"id": 8, "tool": "run_check", "args": {"path": "config.json", "expect_substring": "\"mode\": \"prod\""}}
+  ]
+}

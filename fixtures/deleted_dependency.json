@@ -1,0 +1,15 @@
+{
+  "session_id": "deleted_dependency",
+  "recorded_failure": {
+    "type": "FileNotFoundError",
+    "message_contains": "run_check: data.csv was deleted earlier in this session"
+  },
+  "turns": [
+    {"id": 0, "tool": "write_file", "args": {"path": "data.csv", "content": "id,value\n1,10\n2,20\n"}},
+    {"id": 1, "tool": "write_file", "args": {"path": "script_log.txt", "content": "run started"}},
+    {"id": 2, "tool": "write_file", "args": {"path": "aux.txt", "content": "scratch"}},
+    {"id": 3, "tool": "delete_file", "args": {"path": "data.csv"}},
+    {"id": 4, "tool": "write_file", "args": {"path": "script_log.txt", "content": "run started\nrun finished"}},
+    {"id": 5, "tool": "run_check", "args": {"path": "data.csv", "expect_substring": "id,value"}}
+  ]
+}

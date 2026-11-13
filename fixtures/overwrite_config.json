@@ -1,0 +1,14 @@
+{
+  "session_id": "overwrite_config",
+  "recorded_failure": {
+    "type": "AssertionError",
+    "message_contains": "config.json"
+  },
+  "turns": [
+    {"id": 0, "tool": "write_file", "args": {"path": "config.json", "content": "{\"retries\": 3}"}},
+    {"id": 1, "tool": "write_file", "args": {"path": "notes.txt", "content": "irrelevant note A"}},
+    {"id": 2, "tool": "write_file", "args": {"path": "config.json", "content": "{\"retries\": \"three\"}"}},
+    {"id": 3, "tool": "write_file", "args": {"path": "readme.md", "content": "irrelevant note B"}},
+    {"id": 4, "tool": "run_check", "args": {"path": "config.json", "expect_substring": "\"retries\": 3"}}
+  ]
+}
