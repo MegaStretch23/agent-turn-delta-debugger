@@ -4,6 +4,9 @@ Bisect a saved agent-session transcript down to the **minimal set of turns that 
 
 A transcript is a JSON list of agent turns (tool calls `write_file`, `append_file`, `delete_file`, `run_check`) plus the `recorded_failure` that was observed (exception type + message substring). The tool replays subsets of the turns against a small deterministic in-memory virtual filesystem and keeps removing turns while the exact same failure still happens. Output: a 1-minimal repro transcript instead of the whole log.
 
+
+**Try it in the browser:** [Hugging Face Space](https://huggingface.co/spaces/JohnVeds15/agent-turn-delta-debugger) - paste a transcript, get the minimal repro, nothing to install.
+
 ## Quickstart
 
 ```
